@@ -11,8 +11,6 @@ export default function Index(){
         <View style = {styles.container}>
             <Botao onPress={() => navigation.navigate('Cadastrar')}><Texto>Cadastrar</Texto></Botao>
             <Botao onPress={() => navigation.navigate('Consultar')}><Texto>Consultar</Texto></Botao>
-            <Botao onPress={() => navigation.navigate('Atualizar')}><Texto>Atualizar</Texto></Botao>
-            <Botao onPress={() => navigation.navigate('Excluir')}><Texto>Excluir</Texto></Botao>
         </View>
     ); 
 }

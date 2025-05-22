@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 import { Campo } from "@/components/Campo";
 import { Botao } from "@/components/Botao";
 import { Texto } from "@/components/Texto";
@@ -16,19 +16,23 @@ export default function Cadastrar(){
     const [peso, setPeso] = useState("")
     const [residuos, setResiduos] = useState<ResiduosDataBase[]>()
     const residuosDataBase = useResiduosDataBase();
-
+    
     async function create(){
         try{
             const response = await residuosDataBase.create({
                 data,
                 categoria,
                 peso
-            })
-                Alert.alert("Residuo cadastrado com sucesso! ID: " + response.insertdRowId)
+            });
+
+                 Alert.alert("Residuo cadastrado com sucesso! ID: " + response.insertdRowId)
         }catch(error){
             console.log(error)
-        }
-    }//fim do create
+        } setData("");
+        setCategoria("");
+        setPeso("");
+        
+    }//fim do inserir
     return(
         <View style={styles.container}>
             <Titulo>Cadastrar</Titulo>
